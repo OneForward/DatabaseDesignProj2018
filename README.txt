@@ -1,4 +1,4 @@
-# 模拟网易云音乐数据库管理系统
+﻿# 模拟网易云音乐数据库管理系统
 
 --------
 
@@ -46,4 +46,17 @@
 
             
 注：
-JSON_POST_FORMAT.json里面写明了双方约定执行增删改操作时的POST请求格式
+1. JSON_POST_FORMAT.json里面写明了双方约定执行增删改操作时的POST请求格式
+2. 在`MusicServer/`路径下执行 `python manage.py runserver`可以建立本地数据库的服务器 
+3. 本地API接口如下
+
+localhost:8000/myapi
+
+歌曲信息
+/song?id=
+
+歌手信息
+/artist?id=
+
+专辑信息
+/album?id=

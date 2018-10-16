@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('album/', views.album, name='album'),
     path('song/', views.song, name='song'),
+    path('artist/', views.artist, name='artist'),
     # re_path('music/album', views.album, name='album'),
     # path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     # path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),

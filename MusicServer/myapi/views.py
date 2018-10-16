@@ -139,7 +139,7 @@ def song(request):
         return JsonResponse(data)
 
 
-def artists(request):
+def artist(request):
     query = request.GET
     artist_id = query.get('id', 0)
     if artist_id == 0:
