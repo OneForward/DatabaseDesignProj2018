@@ -97,3 +97,9 @@
     "albums_count   ":,
     "songs_count    ":,
 }
+
+// delete an artist 
+// /artist/delete
+{
+    "artist_id      ":,
+}

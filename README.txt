@@ -47,7 +47,7 @@
             
 注：
 1. JSON_POST_FORMAT.json里面写明了双方约定执行增删改操作时的POST请求格式
-2. 在`MusicServer/`路径下执行 `python manage.py runserver`可以建立本地数据库的服务器 
+2. 在`MusicServer/`路径下执行 `python manage.py runserver`可以建立本地数据库的服务器, 注意连接数据库时需要修改`MusicServer/MusicServer/settings.py`中的DATABASE条目的相关参数
 3. 本地API接口如下
 
 localhost:8000/myapi
