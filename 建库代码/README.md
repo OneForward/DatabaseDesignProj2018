@@ -6,12 +6,12 @@
 按照如下顺序依次建表
 (注：默认用户名密码数据库名都在connection中写明)
 
-_createMusicDatebase.sql
-createAlbumsTables.py
-createArtistsTables.py
-createSongsTables.py
-createSongArtistAlbumsTables.py
-create_utils.py
 
+1. _createMusicDatebase.sql
+2. createAlbumsTables.py
+3. createArtistsTables.py
+4. createSongsTables.py
+5. createSongArtistAlbumsTables.py
+6. create_utils.py
 
 

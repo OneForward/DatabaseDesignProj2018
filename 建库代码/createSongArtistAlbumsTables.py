@@ -40,7 +40,7 @@ with connection.cursor() as cursor:
 
 with connection.cursor() as cursor:
     # Read a single record
-    sql = "SELECT COUNT(*) FROM ArtistAlbumSongs"
+    sql = "SELECT COUNT(*) FROM Artist_Album"
     cursor.execute(sql)
     result = cursor.fetchone()
     print(result)
