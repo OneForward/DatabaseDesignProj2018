@@ -1,25 +1,40 @@
-// add album - json format
+// 规定只能发布专辑，不能发布一首没有专辑的歌曲，因此
+// song 操作只有 update / delete
+// album  操作有 add / update/ delete
+// artist 操作有 add / update/ delete
+
+// update song 
+// /song/update
 {
-    "album_name":,
-    "artist_id":,
-    "songs":[
-        {      
-            "song_name":,
-            "song_resource_url":,
-        },
-        {
-            // ...
-        }
-        // ...
-    ],
-    "description":,
+    "song_id     ":,
+    "song_name   ":,
+    "resource_url":,
+    "style       ":,
+    "is_hot      ":,
+    "album_id    ":,
 }
 
-// update album
+// delete song 
+// /song/delete
 {
-    "album_id":,
-    "artist_id":,
-    "songs":[
+    "song_id     ":,
+}
+
+
+// add album , 发布新专
+// /album/add
+{
+    "album_id     ":, // 搜索在网易数据库中的album_id, 并非本地自己创建
+    "album_name   ":,
+    "album_pic_url":,
+    "publish_time ":,
+    "description  ":,
+    "company      ":,
+    "type         ":,
+    "sub_type     ":,
+    "artist_id    ":,
+    "songs_count  ":,
+    "songs        ":[
         {      
             "song_id":,
             "song_resource_url":,
@@ -29,11 +44,56 @@
         }
         // ...
     ],
-    "description":,
+}
+
+// update album
+// /album/update
+{
+    "album_id     ":,
+    "album_name   ":,
+    "album_pic_url":,
+    "publish_time ":,
+    "description  ":,
+    "company      ":,
+    "type         ":,
+    "sub_type     ":,
+    "artist_id    ":,
+    "songs_count  ":,
+    "songs        ":[
+        {      
+            "song_id":,
+        },
+        {
+            // ...
+        }
+        // ...
+    ],
 }
 
 // delete an album
+// /album/delete
 {
     "album_id":,
 }
 
+// add an artist ， 发布新艺人
+// /artist/add
+{
+    "artist_id      ":, // 搜索在网易数据库中的artist_id, 并非本地自己创建
+    "artist_name    ":,
+    "artist_pic_url ":,
+    "briefDesc      ":,
+    "albums_count   ":,
+    "songs_count    ":,
+}
+
+// update an artist 
+// /artist/update
+{
+    "artist_id      ":,
+    "artist_name    ":,
+    "artist_pic_url ":,
+    "briefDesc      ":,
+    "albums_count   ":,
+    "songs_count    ":,
+}

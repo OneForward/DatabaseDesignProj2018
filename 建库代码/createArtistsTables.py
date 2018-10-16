@@ -19,12 +19,14 @@ try:
             json_data = open(artist_file, 'rb').read()
             data = json.loads(json_data, encoding='utf-8')
             for artist in data['artists']:
-                ar_sql = "INSERT IGNORE INTO ARTISTS(artist_id,artist_name,\
-                artist_pic_url, briefDesc, albums_count, songs_count) \
-                                          VALUES(%s, %s, %s, %s, %s, %s)"
-                cursor.execute(ar_sql, (artist['id'], artist['name'], 
-                  artist['picUrl'], artist['briefDesc'], artist['albumSize'], 
-                  artist['musicSize'])) 
+                ar_sql = "INSERT IGNORE INTO \
+                          ARTISTS(artist_id,artist_name, artist_pic_url, \
+                          briefDesc, albums_count, songs_count) \
+                          VALUES(%s, %s, %s, %s, %s, %s)"
+                          
+                cursor.execute(ar_sql, 
+                  tuple(map(artist.get, ['id', 'name', 'picUrl', 
+                          'briefDesc', 'albumSize', 'musicSize']) ))
                 try:
                     connection.commit()
                 finally:

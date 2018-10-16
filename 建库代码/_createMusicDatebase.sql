@@ -8,7 +8,7 @@ CREATE TABLE SONGS (
   song_name    VARCHAR(127) NOT NULL,
   resource_url VARCHAR(127) NOT NULL DEFAULT '',
   style        VARCHAR(31),
-  is_hot       TINYINT UNSIGNED NOT NULL,
+  is_hot       TINYINT UNSIGNED NOT NULL DEFAULT 0,
   album_id     BIGINT UNSIGNED NOT NULL,
   PRIMARY KEY (song_id)
 ) CHARACTER SET utf8;
@@ -16,19 +16,19 @@ CREATE TABLE SONGS (
 CREATE TABLE ARTISTS (
     artist_id      BIGINT UNSIGNED NOT NULL,
     artist_name    VARCHAR(127) NOT NULL,
-    artist_pic_url VARCHAR(127) NOT NULL,
+    artist_pic_url VARCHAR(127),
     briefDesc      VARCHAR(8191),
-    albums_count   INT UNSIGNED NOT NULL,
-    songs_count    INT UNSIGNED NOT NULL,
+    albums_count   INT UNSIGNED NOT NULL DEFAULT 0,
+    songs_count    INT UNSIGNED NOT NULL DEFAULT 0,
     PRIMARY KEY (artist_id)
 )CHARACTER SET utf8;
 
 CREATE TABLE ALBUMS (
     album_id      BIGINT UNSIGNED NOT NULL,
     album_name    VARCHAR(127) NOT NULL,
-    album_pic_url VARCHAR(127) NOT NULL,
+    album_pic_url VARCHAR(127) ,
     publish_time  BIGINT UNSIGNED NOT NULL,
-    description   VARCHAR(8191) NOT NULL,
+    description   VARCHAR(8191),
     company       VARCHAR(127),
     type          VARCHAR(31),
     sub_type      VARCHAR(31),
@@ -43,18 +43,18 @@ CREATE TABLE ALBUMS (
 CREATE TABLE USRS(
     usr_id      BIGINT UNSIGNED NOT NULL,
     nickname    VARCHAR(127)  NOT NULL,
-    gender      TINYINT NOT NULL,
+    gender      TINYINT NOT NULL DEFAULT 0,
     birthday    DATETIME,
-    province    VARCHAR(31) NOT NULL,
-    city        VARCHAR(31) NOT NULL,
-    avatar_url  VARCHAR(127) NOT NULL,
+    province    VARCHAR(31) ,
+    city        VARCHAR(31) ,
+    avatar_url  VARCHAR(127) ,
     PRIMARY KEY (usr_id)
 )CHARACTER SET utf8;
 
 CREATE TABLE PLAYLISTS(
     playlist_id      BIGINT UNSIGNED NOT NULL,
     creator_id       BIGINT UNSIGNED NOT NULL,
-    playlist_pic_url VARCHAR(127) NOT NULL,
+    playlist_pic_url VARCHAR(127),
     PRIMARY KEY (playlist_id)
 )CHARACTER SET utf8;
 
