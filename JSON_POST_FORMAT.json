@@ -1,0 +1,39 @@
+// add album - json format
+{
+    "album_name":,
+    "artist_id":,
+    "songs":[
+        {      
+            "song_name":,
+            "song_resource_url":,
+        },
+        {
+            // ...
+        }
+        // ...
+    ],
+    "description":,
+}
+
+// update album
+{
+    "album_id":,
+    "artist_id":,
+    "songs":[
+        {      
+            "song_id":,
+            "song_resource_url":,
+        },
+        {
+            // ...
+        }
+        // ...
+    ],
+    "description":,
+}
+
+// delete an album
+{
+    "album_id":,
+}
+
