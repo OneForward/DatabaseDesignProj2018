@@ -2,11 +2,8 @@ from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
-from .models import Songs, Artists, Albums, Artistalbumsongs
 import pymysql.cursors
 import json
-# Connect to the database
-
 
 def search_songs_by_song_id(song_id):
     connection = pymysql.connect(host='localhost',
@@ -115,6 +112,7 @@ def search_artist_by_artist_id(artist_id):
 # Create your views here.
 def detail(request, question_id):
     return HttpResponse("You're looking at question %s." % question_id)
+    
 def index(request):
     print(request)
     print(request.GET)
