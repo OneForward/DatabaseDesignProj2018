@@ -17,6 +17,9 @@ def search(obj, attr, save=True):
     elif obj == 'album_all_songs':
         url += '/album?id={}'.format(attr[1])
         fname = basedir + 'artist_id_{}_album_id_{}_all_songs.json'.format(attr[0], attr[1])
+    elif obj == 'song_id':
+        url += 'song/detail?ids={}'.format(attr[0])
+        fname = basedir + 'song_id_{}.json'.format(attr[0])
     else:
         return
     # osp.exists(fname)

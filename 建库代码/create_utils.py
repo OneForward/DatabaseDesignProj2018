@@ -14,8 +14,8 @@ connection = pymysql.connect(host='localhost',
                              cursorclass=pymysql.cursors.DictCursor)
 with connection.cursor() as cursor:
     # Create a new record
-    drop_table_sql = "DELETE FROM Artist_Hot_Songs"
-    cursor.execute(drop_table_sql)
+    # drop_table_sql = "DELETE FROM Artist_Hot_Songs"
+    # cursor.execute(drop_table_sql)
     for artist_file in all_artists2:
         json_data = open(artist_file, 'rb').read()
         data = json.loads(json_data, encoding='utf-8') 
