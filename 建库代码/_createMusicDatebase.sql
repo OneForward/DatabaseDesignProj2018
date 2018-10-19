@@ -67,7 +67,8 @@ CREATE TABLE Artist_Songs(
         ON UPDATE CASCADE,
     FOREIGN KEY (artist_id) REFERENCES ARTISTS(artist_id)
         ON DELETE CASCADE 
-        ON UPDATE CASCADE 
+        ON UPDATE CASCADE ,
+    PRIMARY KEY (artist_id, song_id)
 )CHARACTER SET utf8;
 
 CREATE TABLE Artist_Hot_Songs(
@@ -78,10 +79,11 @@ CREATE TABLE Artist_Hot_Songs(
         ON UPDATE CASCADE,
     FOREIGN KEY (artist_id) REFERENCES ARTISTS(artist_id)
         ON DELETE CASCADE 
-        ON UPDATE CASCADE 
+        ON UPDATE CASCADE ,
+    PRIMARY KEY (artist_id, song_id)
 )CHARACTER SET utf8;
 
-CREATE TABLE Artist_Album(
+CREATE TABLE Artist_Albums(
     artist_id    BIGINT UNSIGNED NOT NULL,
     album_id     BIGINT UNSIGNED NOT NULL,
     FOREIGN KEY (album_id) REFERENCES ALBUMS(album_id)
@@ -89,7 +91,8 @@ CREATE TABLE Artist_Album(
         ON UPDATE CASCADE ,
     FOREIGN KEY (artist_id) REFERENCES ARTISTS(artist_id)
         ON DELETE CASCADE 
-        ON UPDATE CASCADE 
+        ON UPDATE CASCADE,
+    PRIMARY KEY (artist_id, album_id)
 )CHARACTER SET utf8;
 
 CREATE TABLE Usr_Liked_Resource(
