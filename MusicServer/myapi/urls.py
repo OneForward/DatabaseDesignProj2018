@@ -5,11 +5,11 @@ from . import views
 app_name = 'myapi'
 urlpatterns = [
     path('', views.index, name='index'),
+    path('fetchpost/', views.fetchpost, name='fetchpost'),
     path('album/', views.album, name='album'),
     path('song/', views.song, name='song'),
     path('artist/', views.artist, name='artist'),
-    # re_path('music/album', views.album, name='album'),
-    # path('<int:pk>/', views.DetailView.as_view(), name='detail'),
-    # path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
-    # path('<int:question_id>/vote/', views.vote, name='vote'),
+    # path('album/add', views.album_add, name='album_add'),
+    # path('artist/add', views.artist_add, name='artist_add'),
+    # path('song/add', views.song_add, name='song_add'),
 ]

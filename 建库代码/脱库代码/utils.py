@@ -22,7 +22,7 @@ def search(obj, attr, save=True):
     elif obj == 'artist_id':
         url += '/artists?id=' + str(attr)
         fname = basedir + 'artist_id_{}.json'.format(attr)  
-    elif obj == 'artist_album_id':
+    elif obj == 'artist_albums':
         url += '/artist/album?id={}&limit=200'.format(attr)
         fname = basedir + 'artist_id_{}_albums.json'.format(attr)
     elif obj == 'album_all_songs':

@@ -1,10 +1,8 @@
 import glob
 import json
-import requests
-import os.path as osp
-from json_parse_and_save import search
+from utils import search
 
-artists = glob.glob('database_json/artist*albums.json')
+artists = glob.glob('../database_json/artist*albums.json')
 
 for artist in artists:
     json_data = open(artist, 'rb').read()

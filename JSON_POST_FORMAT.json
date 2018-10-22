@@ -37,7 +37,6 @@
     "songs        ":[
         {      
             "song_id":,
-            "song_resource_url":,
         },
         {
             // ...
