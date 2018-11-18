@@ -161,3 +161,9 @@
 
 4. 制表结构
 ![制表结构](images/UML_white.png?raw=true)
+
+5. 项目开发环境	
+关系数据库服务器：XAMPP(7.2.1)集成了MySQL、Apache等等
+后端界面：Qt5.9.1
+前端界面：Vue、NodeJS
+脚本：python3
