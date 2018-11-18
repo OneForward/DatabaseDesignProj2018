@@ -1,7 +1,7 @@
 import argparse
 import json
 import pymysql 
-from .utils import search
+from utils import search
 
 # get song
 def parse_song_id_and_add_everything(songid):
@@ -58,10 +58,10 @@ def parse_song_id_and_add_everything(songid):
 
         # insert song to sql
         song_sql = "INSERT IGNORE INTO SONGS(song_id,song_name,\
-                                        resource_url,style,album_id) \
-                                          VALUES(%s, %s, %s, %s, %s)"
+                                        resource_url,album_id, is_hot) \
+                                          VALUES(%s, %s, %s, %s, 1)"
         cursor.execute(song_sql, (song['id'], song['name'], \
-                                        '', '', song['al']['id']))  
+                                        '', song['al']['id']))  
         # connection.commit() 
 
         # insert album-artist-songs
@@ -93,43 +93,43 @@ def parse_song_id_and_add_everything(songid):
 
 
         # Test Validity
-        sql = "SELECT * FROM SONGS WHERE song_id=(%s)"
-        cursor.execute(sql, song['id'])
-        result = cursor.fetchall()
-        print('song:\n', result)
+        # sql = "SELECT * FROM SONGS WHERE song_id=(%s)"
+        # cursor.execute(sql, song['id'])
+        # result = cursor.fetchall()
+        # print('song:\n', result)
 
-        sql = "SELECT * FROM ALBUMS WHERE album_id=(%s)"
-        cursor.execute(sql, album['id'])
-        result = cursor.fetchall()
-        print('album:\n', result)
+        # sql = "SELECT * FROM ALBUMS WHERE album_id=(%s)"
+        # cursor.execute(sql, album['id'])
+        # result = cursor.fetchall()
+        # print('album:\n', result)
 
-        sql = "SELECT * FROM ARTISTS WHERE artist_id=(%s)"
-        for artist_data in artists_data:
-            artist =  artist_data['artist']
-            cursor.execute(sql, artist['id'])
-            result = cursor.fetchall()
-            print('artist:\n', result)
+        # sql = "SELECT * FROM ARTISTS WHERE artist_id=(%s)"
+        # for artist_data in artists_data:
+        #     artist =  artist_data['artist']
+        #     cursor.execute(sql, artist['id'])
+        #     result = cursor.fetchall()
+        #     print('artist:\n', result)
 
-        sql = "SELECT * FROM Artist_Albums WHERE artist_id=(%s)"
-        for artist_data in artists_data:
-            artist =  artist_data['artist']
-            cursor.execute(sql, artist['id'])
-            result = cursor.fetchall()
-            print('artist_albums:\n', result)
+        # sql = "SELECT * FROM Artist_Albums WHERE artist_id=(%s)"
+        # for artist_data in artists_data:
+        #     artist =  artist_data['artist']
+        #     cursor.execute(sql, artist['id'])
+        #     result = cursor.fetchall()
+        #     print('artist_albums:\n', result)
 
-        sql = "SELECT * FROM Artist_Songs WHERE artist_id=(%s)"
-        for artist_data in artists_data:
-            artist =  artist_data['artist']
-            cursor.execute(sql, artist['id'])
-            result = cursor.fetchall()
-            print('artist_songs:\n', result)
+        # sql = "SELECT * FROM Artist_Songs WHERE artist_id=(%s)"
+        # for artist_data in artists_data:
+        #     artist =  artist_data['artist']
+        #     cursor.execute(sql, artist['id'])
+        #     result = cursor.fetchall()
+        #     print('artist_songs:\n', result)
 
-            sql = "SELECT * FROM Artist_Hot_Songs WHERE artist_id=(%s)"
-        for artist_data in artists_data:
-            artist =  artist_data['artist']
-            cursor.execute(sql, artist['id'])
-            result = cursor.fetchall()
-            print('artist_hot_songs:\n', result)
+        # sql = "SELECT * FROM Artist_Hot_Songs WHERE artist_id=(%s)"
+        # for artist_data in artists_data:
+        #     artist =  artist_data['artist']
+        #     cursor.execute(sql, artist['id'])
+        #     result = cursor.fetchall()
+        #     print('artist_hot_songs:\n', result)
     connection.close()
 
 if __name__ == '__main__':

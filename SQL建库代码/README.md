@@ -10,7 +10,7 @@
 (注：默认用户名密码数据库名都在connection中写明)
 
 
-1. _createMusicDatebase.sql
+1. _createMusicDatebase.sql: 执行source _createMusicDatebase.sql 即可
 2. createAlbumsTables.py
 3. createArtistsTables.py
 4. createSongsTables.py

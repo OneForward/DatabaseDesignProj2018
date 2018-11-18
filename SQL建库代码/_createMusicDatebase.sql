@@ -40,6 +40,33 @@ CREATE TABLE ALBUMS (
     PRIMARY KEY (album_id)
 )CHARACTER SET utf8;
 
+CREATE TABLE RECENT_ARTISTS (
+    artist_id      BIGINT UNSIGNED NOT NULL,
+    artist_name    VARCHAR(127) NOT NULL,
+    artist_pic_url VARCHAR(127),
+    briefDesc      VARCHAR(8191),
+    albums_count   INT UNSIGNED NOT NULL DEFAULT 0,
+    songs_count    INT UNSIGNED NOT NULL DEFAULT 0,
+    PRIMARY KEY (artist_id)
+)CHARACTER SET utf8;
+
+CREATE TABLE RECENT_ALBUMS (
+    album_id      BIGINT UNSIGNED NOT NULL,
+    album_name    VARCHAR(127) NOT NULL,
+    album_pic_url VARCHAR(127) ,
+    publish_time  BIGINT UNSIGNED NOT NULL,
+    description   VARCHAR(8191),
+    company       VARCHAR(127),
+    type          VARCHAR(31),
+    sub_type      VARCHAR(31),
+    artist_id     BIGINT UNSIGNED NOT NULL,
+    songs_count   INT UNSIGNED NOT NULL,
+        FOREIGN KEY (artist_id) REFERENCES ARTISTS(artist_id)
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE 
+    PRIMARY KEY (album_id)
+)CHARACTER SET utf8;
+
 CREATE TABLE USRS(
     usr_id      BIGINT UNSIGNED NOT NULL,
     nickname    VARCHAR(127)  NOT NULL,
@@ -47,7 +74,8 @@ CREATE TABLE USRS(
     birthday    DATETIME,
     province    VARCHAR(31) ,
     city        VARCHAR(31) ,
-    avatar_url  VARCHAR(127) ,
+    avatar_url  VARCHAR(127),
+    signature   VARCHAR(127),
     PRIMARY KEY (usr_id)
 )CHARACTER SET utf8;
 
@@ -55,9 +83,12 @@ CREATE TABLE PLAYLISTS(
     playlist_id      BIGINT UNSIGNED NOT NULL,
     creator_id       BIGINT UNSIGNED NOT NULL,
     playlist_pic_url VARCHAR(127),
+    playlist_name    VARCHAR(127),
+    description      VARCHAR(8195),
+    createTime       BIGINT UNSIGNED NOT NULL,
+    updateTime       BIGINT UNSIGNED NOT NULL,
     PRIMARY KEY (playlist_id)
 )CHARACTER SET utf8;
-
 
 CREATE TABLE Artist_Songs(
     artist_id    BIGINT UNSIGNED NOT NULL,
@@ -77,7 +108,7 @@ CREATE TABLE Artist_Hot_Songs(
     FOREIGN KEY (song_id) REFERENCES SONGS(song_id)
         ON DELETE CASCADE 
         ON UPDATE CASCADE,
-    FOREIGN KEY (artist_id) REFERENCES ARTISTS(artist_id)
+    FOREIGN KEY (artist_id) REFERENzxzxCES ARTISTS(artist_id)
         ON DELETE CASCADE 
         ON UPDATE CASCADE ,
     PRIMARY KEY (artist_id, song_id)
